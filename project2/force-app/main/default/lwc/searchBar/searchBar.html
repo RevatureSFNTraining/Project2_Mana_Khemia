@@ -1,0 +1,18 @@
+<template>
+    
+    
+    <div class="slds-grid">
+        <!-- Search Box -->
+        <div class="slds-col slds-size_5-of-6">
+            <input class="slds-input" type="text" onchange={handleInput} placeholder="Search for..."/>
+        </div>
+    
+        <!-- Search Button -->
+        <div class="slds-col slds-size_1-of-6">
+            <form action={searchInput} method="get">
+                <input class="slds-button slds-button_brand" type="submit" value="Search"/>
+            </form>
+        </div>
+    </div>
+    
+</template>
