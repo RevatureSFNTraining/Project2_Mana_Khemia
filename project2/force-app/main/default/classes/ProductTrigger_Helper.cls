@@ -18,7 +18,6 @@ public without sharing class ProductTrigger_Helper {
         update listing;
 
         CollaborationGroupRecord associatedItem = new CollaborationGroupRecord();
-            associatedItem.Name = listing.Name;
             associatedItem.RecordId = listing.id;
             associatedItem.CollaborationGroupId = chatterGroup.id;
         insert associatedItem;
@@ -32,7 +31,7 @@ public without sharing class ProductTrigger_Helper {
     public static void newHighestBidMessage(Product2 oldListing, Product2 newListing) {
         if(newListing.Current_Highest_Bid__c.Price__c > oldListing.Current_Highest_Bid__c.Price__c) {
 
-            message = 'A new highest bid has been posted for ' + newListing.Name + 
+            String message = 'A new highest bid has been posted for ' + newListing.Name + 
                                     ': ' + newListing.Current_Highest_Bid__c.Bidder__c.Price__c + ' by {' + newListing.Current_Highest_Bid__c.Bidder__c.id +
                                     '}, beating ' + oldListing.Current_Highest_Bid__c.Bidder__c.Price__c + ' by {' + oldListing.Current_Highest_Bid__c.Bidder__c.id + '}.';
 

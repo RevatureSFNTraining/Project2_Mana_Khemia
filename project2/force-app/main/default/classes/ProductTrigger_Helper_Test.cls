@@ -1,11 +1,11 @@
 @isTest
 public without sharing class ProductTrigger_Helper_Test {
-    public static numberOfProducts = 30;
+    public static Integer numberOfProducts = 30;
 
     @TestSetup
     static void setup() {
         List<Product2> testProducts = new List<Product2>();
-        for(i = 1; i <= numberOfProducts; i++) {
+        for(Integer i = 1; i <= numberOfProducts; i++) {
             testProducts.add(new Product2(Name= 'Test Product ' + i));
         }
         insert testProducts;
@@ -17,7 +17,7 @@ public without sharing class ProductTrigger_Helper_Test {
         Integer successes = 0;
         for(Product2 prod: [SELECT Id,Name,Chatter_Group_Id__c FROM Product2]) {
             ID associatedGroupId = Id.valueOf(prod.Chatter_Group_Id__c);
-            List<CollaborationGroup> associatedGroup = [SELECT Id,Name FROM CollaborationGroup WHERE Id = associatedGroupId]
+            List<CollaborationGroup> associatedGroup = [SELECT Id,Name FROM CollaborationGroup WHERE Id = :associatedGroupId];
 
                 // Each product should have exactly one group
 
@@ -45,7 +45,7 @@ public without sharing class ProductTrigger_Helper_Test {
         Id associatedGroupId = Id.valueOf(testProduct.Chatter_Group_Id__c);
         update testProduct;
 
-        List<FeedItem> allFeedItems = [SELECT Id,Body,ParentId FROM FeedItem WHERE ParentId = associatedGroupId];
+        List<FeedItem> allFeedItems = [SELECT Id,Body,ParentId FROM FeedItem WHERE ParentId = :associatedGroupId];
         for(FeedItem fi: allFeedItems) {
             if(fi.Body.contains('The bidding period for this item has now closed.')) {
                 successes++;

@@ -1,4 +1,4 @@
-trigger ProductTrigger on Product (before insert, before update, before delete, after insert, after update, after delete, after undelete) {
+trigger ProductTrigger on Product2 (before insert, before update, before delete, after insert, after update, after delete, after undelete) {
 
     Switch on Trigger.OperationType {
         when BEFORE_INSERT {
