@@ -1,0 +1,19 @@
+.blank_row{
+    height: 10px;
+    background-color: white;
+}
+.blank_row1{
+    height: 3px;
+    background-color: white;
+}
+.blank_row3{
+    height: 20px;
+    background-color: white;
+}
+.font{
+    font-size: 15px;
+}
+.border{
+    border-top: 2px solid gray;
+    padding-top: 20px;
+}

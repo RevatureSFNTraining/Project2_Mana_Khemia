@@ -1,0 +1,7 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+
+    <c:header></c:header>
+    <c:buttons></c:buttons>
+    <c:messageBody></c:messageBody>
+    
+</aura:component>	

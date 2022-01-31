@@ -1,0 +1,151 @@
+<template>
+    <table aria-multiselectable="true" class="slds-table slds-table_bordered slds-table_fixed-layout slds-table_resizable-cols" role="grid" aria-label="Example advanced table of Opportunities with header menu button">
+        <thead>
+        <tr class="slds-line-height_reset">
+        <th class="slds-text-align_right color" scope="col" style="width:3.25rem">
+        <span id="column-group-header" class="slds-assistive-text">Choose a row</span>
+        <div class="slds-th__action slds-th__action_form">
+        <div class="slds-checkbox">
+        <input type="checkbox" name="options" id="checkbox-unique-id-93" value="checkbox-unique-id-93" tabindex="-1" aria-labelledby="check-select-all-label column-group-header" />
+        <label class="slds-checkbox__label" for="checkbox-unique-id-93" id="check-select-all-label">
+       
+        <span class="slds-form-element__label slds-assistive-text">Select All</span>
+        </label>
+        </div>
+        </div>
+        </th>
+        <th aria-label="Name" aria-sort="none" class="color slds-has-button-menu slds-is-resizable slds-is-sortable" scope="col">
+        <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="-1">
+        <span class="slds-assistive-text">Sort by: </span>
+        <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+        <span class="slds-truncate" title="Name">{from}</span>
+        <span class="slds-icon_container slds-icon-utility-arrowdown">
+       
+        </span>
+        </div>
+        </a>
+        <button class="slds-button slds-button_icon slds-th__action-button slds-button_icon-x-small" aria-haspopup="true" tabindex="-1" title="Show Name column actions">
+       
+        <span class="slds-assistive-text">Show Name column actions</span>
+        </button>
+        <div class="slds-resizable">
+        <input type="range" aria-label="Name column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-183" max="1000" min="20" tabindex="-1" />
+        <span class="slds-resizable__handle">
+        <span class="slds-resizable__divider"></span>
+        </span>
+        </div>
+        </th>
+        <th style="width:700px" aria-label="Account Name" aria-sort="none" class="color slds-has-button-menu slds-is-resizable slds-is-sortable" scope="col">
+        <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="-1">
+        <span class="slds-assistive-text">Sort by: </span>
+        <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate" >
+        <span class="slds-truncate fontColor" title="Account Name" >{subject}</span>
+        <span class="slds-icon_container slds-icon-utility-arrowdown">
+      
+        </span>
+        </div>
+        </a>
+        <button class="slds-button slds-button_icon slds-th__action-button slds-button_icon-x-small" aria-haspopup="true" tabindex="-1" title="Show Account Name column actions">
+       
+        <span class="slds-assistive-text">Show Account Name column actions</span>
+        </button>
+        <div class="slds-resizable">
+        <input type="range" aria-label="Account Name column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-184" max="1000" min="20" tabindex="-1" />
+        <span class="slds-resizable__handle">
+        <span class="slds-resizable__divider"></span>
+        </span>
+        </div>
+        </th>
+        <th aria-label="Close Date" aria-sort="none" class="color slds-has-button-menu slds-is-resizable slds-is-sortable" scope="col">
+        <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="-1">
+        <span class="slds-assistive-text">Sort by: </span>
+        <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+        <span class="slds-truncate" title="Close Date">{received}</span>
+        <span class="slds-icon_container slds-icon-utility-arrowdown">
+      
+        </span>
+        </div>
+        </a>
+        <button class="slds-button slds-button_icon slds-th__action-button slds-button_icon-x-small" aria-haspopup="true" tabindex="-1" title="Show Close Date column actions">
+       
+        <span class="slds-assistive-text">Show Close Date column actions</span>
+        </button>
+        <div class="slds-resizable">
+        <input type="range" aria-label="Close Date column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-185" max="1000" min="20" tabindex="-1" />
+        <span class="slds-resizable__handle">
+        <span class="slds-resizable__divider"></span>
+        </span>
+        </div>
+        </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr aria-selected="false" class="slds-hint-parent">
+        <td class="slds-text-align_right" role="gridcell">
+        <div class="slds-checkbox">
+        <input type="checkbox" name="options" id="checkbox-01" value="checkbox-01" tabindex="-1" aria-labelledby="check-button-label-01 column-group-header" />
+        <label class="slds-checkbox__label" for="checkbox-01" id="check-button-label-01">
+        <span class="slds-checkbox_faux"></span>
+        <span class="slds-form-element__label slds-assistive-text">Select item 1</span>
+        </label>
+        </div>
+        </td>
+        <th scope="row" tabindex="0">
+        <div class="slds-truncate" title="Acme - 1,200 Widgets">
+        <a href="#" tabindex="-1">ebay</a>
+        </div>
+        </th>
+        <td role="gridcell">
+        <div class="slds-truncate" title="Acme"><a href="#" name="message1" onclick={handleClick}>{message1}</a></div>
+        </td>
+        <td role="gridcell">
+        <div class="slds-truncate" title="4/10/15">Dec 15</div>
+        </td>
+        </tr>
+        <tr aria-selected="false" class="slds-hint-parent">
+        <td class="slds-text-align_right" role="gridcell">
+        <div class="slds-checkbox">
+        <input type="checkbox" name="options" id="checkbox-02" value="checkbox-02" tabindex="-1" aria-labelledby="check-button-label-02 column-group-header" />
+        <label class="slds-checkbox__label" for="checkbox-02" id="check-button-label-02">
+        <span class="slds-checkbox_faux"></span>
+        <span class="slds-form-element__label slds-assistive-text">Select item 2</span>
+        </label>
+        </div>
+        </td>
+        <th scope="row">
+        <div class="slds-truncate" title="Acme - 200 Widgets">
+        <a href="#" tabindex="-1">ebay</a>
+        </div>
+        </th>
+        <td role="gridcell">
+        <div class="slds-truncate" title="Acme"><a href="#" name="message2" onclick={handleClick}>{message2}</a></div>
+        </td>
+        <td role="gridcell">
+        <div class="slds-truncate" title="1/31/15">Dec 2</div>
+        </td>
+        </tr>
+        <tr aria-selected="false" class="slds-hint-parent">
+        <td class="slds-text-align_right" role="gridcell">
+        <div class="slds-checkbox">
+        <input type="checkbox" name="options" id="checkbox-03" value="checkbox-03" tabindex="-1" aria-labelledby="check-button-label-03 column-group-header" />
+        <label class="slds-checkbox__label" for="checkbox-03" id="check-button-label-03">
+        <span class="slds-checkbox_faux"></span>
+        <span class="slds-form-element__label slds-assistive-text">Select item 3</span>
+        </label>
+        </div>
+        </td>
+        <th scope="row">
+        <div class="slds-truncate" title="salesforce.com - 1,000 Widgets">
+        <a href="#" tabindex="-1">ebay</a>
+        </div>
+        </th>
+        <td role="gridcell">
+        <div class="slds-truncate" title="salesforce.com"><a href="#" name="message3" onclick={handleClick}>{message3}</a></div>
+        </td>
+        <td role="gridcell">
+        <div class="slds-truncate" title="1/31/15 3:45PM">Dec 24</div>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+</template>
