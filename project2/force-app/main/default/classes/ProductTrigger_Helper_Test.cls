@@ -5,8 +5,9 @@ public without sharing class ProductTrigger_Helper_Test {
     @TestSetup
     static void setup() {
         List<Product2> testProducts = new List<Product2>();
-        for(Integer i = 1; i <= numberOfProducts; i++) {
-            testProducts.add(new Product2(Name= 'Test Product ' + i));
+        User dummySeller = [SELECT Id,Name FROM User WHERE Name = 'Dummy User' LIMIT 1];
+        for(Integer i = 0; i < numberOfProducts; i++) {
+            testProducts.add(new Product2(Name= 'Test Product ' + i, Close_Date__c = DateTime.newInstance(2023, 1, 31, 7, 8, 16), Minimum_Price__c = 100.00, Seller__c = dummySeller.Id));
         }
         insert testProducts;
     }
@@ -14,46 +15,138 @@ public without sharing class ProductTrigger_Helper_Test {
 
     @isTest
     static void chatterGroupTest() {
-        Integer successes = 0;
-        for(Product2 prod: [SELECT Id,Name,Chatter_Group_Id__c FROM Product2]) {
-            ID associatedGroupId = Id.valueOf(prod.Chatter_Group_Id__c);
-            List<CollaborationGroup> associatedGroup = [SELECT Id,Name FROM CollaborationGroup WHERE Id = :associatedGroupId];
-
-                // Each product should have exactly one group
-
-                if(associatedGroup.size() == 1) {
-                    for(CollaborationGroup cg: associatedGroup) {
-
-                        // Each group's name should correspond to the item's name
-                        if (cg.Name == prod.Name + ': ' + product.Seller__c.Name) {
-                            successes++;
-                        }
-                    }
-                }
-        }
-
-
-        System.assertEquals(numberOfProducts, successes);
+        Product2 testProduct = [SELECT Id,Name FROM Product2 WHERE Name = 'Test Product 0' LIMIT 1];
+        String testProductQuery = '%(ID: ' + testProduct.id + ')';
+        CollaborationGroup testProductCG = [SELECT Id,Name,Description FROM CollaborationGroup WHERE Description LIKE :testProductQuery];
+        
+		System.assertNotEquals(null, testProductCG);
     }
-
+    
     @isTest
-    static void closingMessageSentTest() {
+    static void batchChatterGroupTest() {
         Integer successes = 0;
-        Product2 testProduct = [SELECT Id,Name,Chatter_Group_Id__c,Close_Date__c FROM Product2 WHERE Name='Test Product 1' LIMIT 1];
-        testProduct.Close_Date__c == DateTime.newInstance(1997, 1, 31, 7, 8, 16);
-        testProduct.isActive = false;
-        Id associatedGroupId = Id.valueOf(testProduct.Chatter_Group_Id__c);
-        update testProduct;
-
-        List<FeedItem> allFeedItems = [SELECT Id,Body,ParentId FROM FeedItem WHERE ParentId = :associatedGroupId];
-        for(FeedItem fi: allFeedItems) {
-            if(fi.Body.contains('The bidding period for this item has now closed.')) {
+        for(Integer i = 0; i < numberOfProducts; i++) {
+            String nameQuery = 'Test Product ' + i;
+            Product2 testProduct = [SELECT Id,Name FROM Product2 WHERE Name = :nameQuery LIMIT 1];
+            String testProductQuery = '%(ID: ' + testProduct.id + ')';
+            CollaborationGroup testProductCG = [SELECT Id,Name,Description FROM CollaborationGroup WHERE Description LIKE :testProductQuery];
+            
+            if(testProductCG != null) {
                 successes++;
             }
         }
+        
+        System.assertEquals(numberOfProducts, successes);
+    }
+    
+    
+    
+    
+    
 
+    @isTest
+    static void closingMessageTest() {
+        Boolean testSuccess = false;
+        Product2 testProduct = [SELECT Id,Name,Close_Date__c FROM Product2 WHERE Name='Test Product 0' LIMIT 1];
+        testProduct.Close_Date__c = DateTime.newInstance(1997, 1, 31, 7, 8, 16);
+        testProduct.isActive = false;
+        String testProductQuery = '%(ID: ' + String.valueOf(testProduct.id) + ')';
+        
+        update testProduct;
+        
+        
+        CollaborationGroup associatedGroup = [SELECT Name,Id,Description FROM CollaborationGroup WHERE Description LIKE :testProductQuery LIMIT 1];
+		List<FeedItem> allFeedItems = [SELECT Id,Body,ParentId FROM FeedItem WHERE ParentId = :associatedGroup.Id];
+        for(FeedItem fi: allFeedItems) {
+            if(fi.Body.contains('The bidding period for this item has now closed.')) {
+                testSuccess = true;
+            }
+        }
 
-        System.assertEquals(successes, 1);
+		System.assert(testSuccess);
+    }
+
+    @isTest
+    static void batchClosingMessageTest() {
+        Integer successes = 0;
+        for(Integer i = 0; i < numberOfProducts; i++) {
+            Product2 testProduct = [SELECT Id,Name,Close_Date__c FROM Product2 WHERE Name='Test Product 0' LIMIT 1];
+            testProduct.Close_Date__c = DateTime.newInstance(1997, 1, 31, 7, 8, 16);
+            testProduct.isActive = false;
+            String testProductQuery = '%(ID: ' + String.valueOf(testProduct.id) + ')';
+            
+            update testProduct;
+            
+            
+            CollaborationGroup associatedGroup = [SELECT Name,Id,Description FROM CollaborationGroup WHERE Description LIKE :testProductQuery LIMIT 1];
+            List<FeedItem> allFeedItems = [SELECT Id,Body,ParentId FROM FeedItem WHERE ParentId = :associatedGroup.Id];
+            for(FeedItem fi: allFeedItems) {
+                if(fi.Body.contains('The bidding period for this item has now closed.')) {
+                    successes++;
+                }
+            }
+        }
+        
+        System.assertEquals(numberOfProducts, successes);
+    }
+    
+    
+    
+    
+    
+    
+    @isTest
+    static void deletedListingChatterGroupTest() {
+        Product2 testProduct = [SELECT Id,Name FROM Product2 WHERE Name = 'Test Product 0' LIMIT 1];
+        String testProductQuery = '%(ID: ' + testProduct.id + ')';
+        delete testProduct;
+        
+        CollaborationGroup[] testProductCG = [SELECT Id,Name,Description FROM CollaborationGroup WHERE Description LIKE :testProductQuery];
+        
+        System.assertEquals(0, testProductCG.size());
+    }
+    
+    @isTest
+    static void batchDeletedListingChatterGroupTest() {
+        Integer successes = 0;
+        for(Integer i=0; i < numberOfProducts; i++) {
+            String nameQuery = 'Test Product ' + i;
+            Product2 testProduct = [SELECT Id,Name FROM Product2 WHERE Name = :nameQuery LIMIT 1];
+            String testProductQuery = '%(ID: ' + String.valueOf(testProduct.id) + ')';
+            delete testProduct;
+            
+            CollaborationGroup[] testProductCG = [SELECT Id,Name,Description FROM CollaborationGroup WHERE Description LIKE :testProductQuery];
+            if(testProductCG.size() == 0) {
+                successes++;
+            }
+        }
+        
+        System.assertEquals(numberOfProducts, successes);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @isTest
+    static void findAssociatedChatterGroupTest() {
+        User dummySeller = [SELECT Id,Name FROM User WHERE Name = 'Dummy User' LIMIT 1];
+        Product2 testProduct = new Product2(Name= 'Test Product (Associated Group Test)', Close_Date__c = DateTime.newInstance(2023, 1, 31, 7, 8, 16), Minimum_Price__c = 100.00, Seller__c = dummySeller.Id);
+        
+        insert testProduct;
+        
+        
+        
+        String testProductQuery = '%(ID: ' + String.valueOf(testProduct.id) + ')';
+        
+        CollaborationGroup expectedCG = [SELECT Name,Id,Description FROM CollaborationGroup WHERE Description LIKE :testProductQuery LIMIT 1];
+        CollaborationGroup cg = ProductTrigger_Helper.findAssociatedChatterGroup(testProduct);
+        
+        System.assertEquals(expectedCG, cg);
     }
 
 

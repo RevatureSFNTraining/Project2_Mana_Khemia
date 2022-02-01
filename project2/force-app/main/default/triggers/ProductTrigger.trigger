@@ -15,6 +15,7 @@ trigger ProductTrigger on Product2 (before insert, before update, before delete,
             ProductTrigger_Helper.sendClosingMessage(Trigger.new);
         }
         when AFTER_DELETE {
+            ProductTrigger_Helper.deleteChatterGroups(Trigger.old);
         }
         when AFTER_UNDELETE {
         } 
