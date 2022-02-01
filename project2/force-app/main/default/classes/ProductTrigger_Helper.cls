@@ -27,13 +27,18 @@ public without sharing class ProductTrigger_Helper {
                 listingChatterGroup.isAutoArchiveDisabled = true;
             groupsToAdd.add(listingChatterGroup);
 
-            CollaborationGroupMember sellerMember = new CollaborationGroupMember();
-                sellerMember.MemberId = seller.id;
-                sellerMember.CollaborationGroupId = listingChatterGroup.id;
-            groupMembersToAdd.add(sellerMember);
+            
         }
 
         insert groupsToAdd;
+        
+        for(Product2 listing: newListings) {
+            CollaborationGroup listingChatterGroup = findAssociatedChatterGroup(listing);
+            CollaborationGroupMember sellerMember = new CollaborationGroupMember();
+                    sellerMember.MemberId = listing.Seller__c;
+                    sellerMember.CollaborationGroupId = listingChatterGroup.id;
+                groupMembersToAdd.add(sellerMember);
+        }
         insert groupMembersToAdd;
     }
 
@@ -72,8 +77,7 @@ public without sharing class ProductTrigger_Helper {
                 }
         }
     }
-
-
+    
     public static void deleteChatterGroups(List<Product2> listings) {
         List<CollaborationGroup> groupsToDelete = new List<CollaborationGroup>();
         for(Product2 listing: listings) {
