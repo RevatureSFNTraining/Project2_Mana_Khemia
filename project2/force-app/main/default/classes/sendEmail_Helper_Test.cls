@@ -29,8 +29,8 @@ public with sharing class sendEmail_Helper_Test {
         Test.startTest();
 
         User uId =[select Id from User where Username = 'payal.patel@revature.net' limit 1];
-            User user =[select Status__C from User where Id =: uId.Id limit 1];  
-            user.Status__C = true;
+            User user =[select Blocked__c from User where Id =: uId.Id limit 1];  
+            user.Blocked__c = true;
 
         System.assertEquals(0, Limits.getEmailInvocations(), 'No emails should be sent');
         update user;
@@ -60,7 +60,7 @@ public with sharing class sendEmail_Helper_Test {
             LanguageLocaleKey = 'en_US',
             LocaleSidKey = 'en_US',
             ProfileId = P.id,
-            Status__C = true
+            Blocked__c = true
         ); 
             users.add(u);
         }

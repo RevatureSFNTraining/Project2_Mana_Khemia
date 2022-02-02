@@ -6,7 +6,7 @@ public with sharing class sendEmail_Helper {
         List<String> sendTo = new List<String>();
         
         for(User u : us){
-            if(u.Status__C == true){
+            if(u.Blocked__c == true){
                 Messaging.SingleEmailMessage mail =  new Messaging.SingleEmailMessage();
                 sendTo.add(u.Username);
                 mail.setToAddresses(sendTo);
