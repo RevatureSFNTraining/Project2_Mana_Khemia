@@ -1,6 +1,6 @@
 trigger sendEmail on User (before insert, before update, before delete, after insert, after update) {
 
- /*   Switch on Trigger.OperationType {
+    Switch on Trigger.OperationType {
         when AFTER_INSERT {
             sendEmail_Helper.sendEmail(Trigger.new);
         }
@@ -16,5 +16,5 @@ trigger sendEmail on User (before insert, before update, before delete, after in
         when BEFORE_INSERT {
 
         }
-    }  */   
+    }     
 }
