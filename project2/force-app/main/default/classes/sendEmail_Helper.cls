@@ -17,5 +17,5 @@ public with sharing class sendEmail_Helper {
             }
         }
     Messaging.sendEmail(mails);
-    }
+    }  
 }

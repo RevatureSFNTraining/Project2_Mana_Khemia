@@ -70,6 +70,6 @@ public with sharing class sendEmail_Helper_Test {
         System.assertEquals(1, Limits.getEmailInvocations(), 'Emails should be sent');
 
         Test.stopTest();
-    }
+    } 
 
 }
