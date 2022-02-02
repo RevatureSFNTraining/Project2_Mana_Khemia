@@ -54,5 +54,13 @@
         <members>ebay</members>
         <name>CustomApplication</name>
     </types>
+    <types>
+        <members>ebay_UtilityBar</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>ebayLogo</members>
+        <name>ContentAsset</name>
+    </types>
     <version>52.0</version>
 </Package>
