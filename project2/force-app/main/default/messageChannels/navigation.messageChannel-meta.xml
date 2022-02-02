@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+
+    <masterLabel>Navigation</masterLabel>
+	
+    <isExposed>true</isExposed>
+	
+    <description>Lightning Message Channel used to navigate between pages.</description>
+	
+    <lightningMessageFields>
+        <fieldName>pageRedirect</fieldName>
+        <description>Page to be redirected to</description>
+    </lightningMessageFields>
+	
+</LightningMessageChannel>
