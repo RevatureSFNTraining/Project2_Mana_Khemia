@@ -1,6 +1,6 @@
-public class sendEmail_Helper {
+public with sharing class sendEmail_Helper {
 
-    public static void myMethod(List<User> us) {
+    public static void sendEmail(List<User> us) {
 
         List<Messaging.SingleEmailMessage> mails =  new List<Messaging.SingleEmailMessage>();
         List<String> sendTo = new List<String>();

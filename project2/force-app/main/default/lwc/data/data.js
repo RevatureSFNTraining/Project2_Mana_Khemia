@@ -2,6 +2,12 @@ import { LightningElement, api } from 'lwc';
 
 export default class DataTable extends LightningElement {
 
+    @api Delete = 'Delete';
+    @api Archive = 'Archive';
+    @api Flagged = 'Flagged';
+    @api Unread = 'Unread';
+    @api Unflagged = 'Unflagged';
+    
     @api subject = 'Subject';
     @api received = 'Received';
     @api from = 'From';
