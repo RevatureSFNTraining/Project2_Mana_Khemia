@@ -2,6 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Current_Highest_Bid__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
     <externalId>false</externalId>
     <label>Current Highest Bid</label>
     <referenceTo>Bid__c</referenceTo>

@@ -143,6 +143,7 @@
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
     <description>User&apos;s bid on listing (Product)</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>false</enableBulkApi>

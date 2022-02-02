@@ -46,6 +46,8 @@
         <name>CustomTab</name>
     </types>
     <types>
+        <members>Product2-Product Layout</members>
+        <members>User-User Layout</members>
         <members>Bid__c-Bid Layout</members>
         <members>Watchlist_Item__c-Watchlist Item Layout</members>
         <name>Layout</name>
