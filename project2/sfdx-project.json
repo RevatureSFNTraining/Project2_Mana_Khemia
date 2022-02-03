@@ -2,8 +2,17 @@
     "packageDirectories": [
         {
             "path": "force-app",
+            "default": true,
+            "package": "p2ebay-alchemy-mk",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT"
+        }
     ],
-    "name": "project2",
-    "namespace": "",
+    "name": "p2ebay",
     "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "52.0",
+    "packageAliases": {
+        "p2ebay-alchemy-mk": "0Ho8c000000XZEJCA4",
+        "p2ebay-alchemy-mk@0.1.0-1": "04t8c000000pQjyAAE"
+    }
 }

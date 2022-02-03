@@ -1,4 +1,7 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+  <lightning:messageChannel type="Navigation__c"
+  aura:id="componentPageRedirect" onMessage="{!c.pageRedirect}"/>
+
   <!-- header -->
   <c:header></c:header>
 

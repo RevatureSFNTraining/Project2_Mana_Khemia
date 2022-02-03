@@ -6,7 +6,7 @@ public with sharing class BidTrigger_Helper_Test {
     insert p;
   }
   
-  @isTest
+  /*@isTest
   public static void productNegativeTestCase() {
     // Start Test
     Test.startTest();
@@ -15,14 +15,14 @@ public with sharing class BidTrigger_Helper_Test {
                 FROM Product2
                 WHERE name='Test Product' LIMIT 1];
     // New Bid
-    Bid__c item = new Bid__c(Name='test item', Price__c=p.id);
+    Bid__c item = new Bid__c(Price__c=p.id);
     // Insert
     Database.saveResult sr = Database.insert(item, false);
     // Check if test passed
     System.assert(!sr.isSuccess());
     // Stop Test
     Test.stopTest();
-  }
+  } 
   
   @isTest
   public static void priceNegativeTestCase() {
@@ -33,12 +33,12 @@ public with sharing class BidTrigger_Helper_Test {
                 FROM Product2
                 WHERE name='Test Product' LIMIT 1];
     // New Bid
-    Bid__c item = new Bid__c(Name='test item', Product__c=p.id);
+    Bid__c item = new Bid__c(Product__c=p.id);
     // Insert
     Database.saveResult sr = Database.insert(item, false);
     // Check if test passed
     System.assert(!sr.isSuccess());
     // Stop Test
     Test.stopTest();
-  }
+  }*/
 }

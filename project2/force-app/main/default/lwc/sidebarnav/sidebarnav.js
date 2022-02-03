@@ -6,6 +6,7 @@ import {
     APPLICATION_SCOPE,
     MessageContext
 } from 'lightning/messageService';
+import Navigation from '@salesforce/messageChannel/Navigation__c';
 
 export default class Sidebarnav extends LightningElement {
     @wire(MessageContext)
