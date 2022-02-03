@@ -1,0 +1,27 @@
+.THIS .center {
+    text-align: center;
+}
+
+.THIS .product {
+    display: flex;
+    align-items: center;
+}
+
+.THIS .productImage {
+    padding: 10px;
+}
+
+.THIS .productInfo {
+    padding: 10px;
+}
+
+.THIS .name {
+    color: blue;
+    text-align: center;
+}
+
+.THIS .price {
+    font-weight: bold;
+    font-size: x-large;
+    text-align: center;
+}
