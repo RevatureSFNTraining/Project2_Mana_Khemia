@@ -1,12 +1,12 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
   <!-- header -->
-  <!-- <c:header></c:header> -->
+  <c:header></c:header>
 
   <!-- body -->
   <div class="slds-grid">
     <!-- navigation sidebar -->
     <div class="sidebar slds-col slds-size_1-of-7">
-      <!-- <c:sidebarnav></c:sidebarnav> -->
+      <c:sidebarnav></c:sidebarnav>
     </div>
 
     <!-- promotions -->
@@ -19,5 +19,5 @@
     </div>
   </div>
   <!-- footer -->
-  <!-- <c:footer></c:footer> -->
+  <c:footer></c:footer>
 </aura:component>
