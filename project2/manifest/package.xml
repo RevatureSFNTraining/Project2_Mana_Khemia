@@ -14,6 +14,7 @@
     <types>
         <members>featured</members>
         <members>recommended</members>
+        <members>deals</members>
         <name>LightningComponentBundle</name>
     </types>
 
