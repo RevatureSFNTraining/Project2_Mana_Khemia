@@ -16,6 +16,9 @@
 
       <!-- recommended -->
       <c:recommended></c:recommended>
+
+      <!-- deals -->
+      <c:deals></c:deals>
     </div>
   </div>
   <!-- footer -->
