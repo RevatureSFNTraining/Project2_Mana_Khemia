@@ -29,7 +29,7 @@
                         <img class="image" src="{!$Resource.DellLaptop}"/>
                     </div>
                     <div class="productInfo">
-                        <p class="name">Dell - Precision 7000 17.3" Laptop - Intel Core i7 - 64 GB Memory - NVIDIA RTX A4000 - 512 GB SSD - Gray</p>
+                        <a href="/s/01t8c00000D7rMnAAJ" class="name">Dell - Precision 7000 17.3" Laptop - Intel Core i7 - 64 GB Memory - NVIDIA RTX A4000 - 512 GB SSD - Gray</a>
                         <p class="price">$4,299.99</p>
                     </div>
                 </div>
