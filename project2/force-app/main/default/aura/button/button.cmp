@@ -1,0 +1,12 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    
+    <!-- Conner's header -->
+    <c:header></c:header>
+
+    <!--MessageBody-->
+    <c:data></c:data>
+
+    <!--Footer-->
+    <c:footer></c:footer>
+    
+</aura:component>
