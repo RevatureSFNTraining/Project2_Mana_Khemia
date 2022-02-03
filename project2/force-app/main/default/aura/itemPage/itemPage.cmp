@@ -7,7 +7,7 @@
     <aura:handler name="init" value="{!this}" action="{!c.init}" />
     <lightning:notificationsLibrary aura:id="notifLib"/>
 
-    <aura:attribute name="productId" type="Id" />
+    <aura:attribute name="productId" type="Id" default=""/>
     <aura:attribute name="product" type="Product2" />
     <aura:attribute name="highestBid" type="Bid__c" />
     <aura:attribute name="highestBidder" type="User" />
@@ -22,6 +22,12 @@
         recordId="{!v.product.Current_Highest_Bid__c}"
         fields="['Name', 'Bidder__c', 'Price__c']"
         targetFields="{!v.highestBid}"
+    />
+    <force:recordData
+        aura:id="recordProductSeller"
+        recordId="{!v.product.Seller__c}"
+        fields="['Name']"
+        targetFields="{!v.highestBidder}"
     />
 
     <div class="slds-grid">
@@ -40,6 +46,7 @@
             <div class="center product slds-col slds-size_1-of-3">
                 <div class="productInfo">
                     <p class="name">Dell - Precision 7000 17.3" Laptop - Intel Core i7 - 64 GB Memory - NVIDIA RTX A4000 - 512 GB SSD - Gray</p>
+                    <p class="name">Seller: {!v.highestBidder.Name}</p>
                     <p class="price">Minimum Bid Price: {!v.product.Minimum_Price__c}</p>
                     <p class="price">Current Highest Bid: {!v.highestBid.Price__c}</p>
                 </div>
