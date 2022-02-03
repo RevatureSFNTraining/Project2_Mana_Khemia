@@ -1,6 +1,9 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
-
-    <!-- header -->
+    <!-- needed to run Zain's sidebarnav -->
+    <lightning:messageChannel type="Navigation__c"
+        aura:id="componentPageRedirect" onMessage="{!c.pageRedirect}"/>
+    
+        <!-- header -->
     <div class="header">
         <c:header></c:header>
     </div>
