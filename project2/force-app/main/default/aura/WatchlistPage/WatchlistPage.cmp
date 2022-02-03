@@ -1,0 +1,172 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+
+    <!-- header -->
+    <div class="header">
+        <c:header></c:header>
+    </div>
+    
+    <!-- promo banner -->
+    <div class="promo">
+        <!-- Rudy's promo banner -->
+    </div>
+
+    <!-- body -->
+    <div class="slds-grid">
+        <!-- navigation sidebar -->
+        <div class="sidebar slds-col slds-size_1-of-7">
+            <!-- Zain's sidebar -->
+        </div>
+
+        <!-- watchlist -->
+        <div class="slds-col slds-size_6-of-7">
+            <!-- first row -->
+            <div class="slds-grid">
+                <div class="center product slds-col slds-size_1-of-3">
+                    <div class="productImage">
+                        <img class="image" src="{!$Resource.DellLaptop}"/>
+                    </div>
+                    <div class="productInfo">
+                        <p class="name">Dell - Precision 7000 17.3" Laptop - Intel Core i7 - 64 GB Memory - NVIDIA RTX A4000 - 512 GB SSD - Gray</p>
+                        <p class="price">$4,299.99</p>
+                    </div>
+                </div>
+
+                <div class="center product slds-col slds-size_1-of-3">
+                    <div class="productImage">
+                        <img class="image" src="{!$Resource.RazerLaptop}"/>
+                    </div>
+                    <div class="productInfo">
+                        <p class="name">Razer - Blade 15.6" 4K OLED Touch Screen Laptop - Intel Core i7 - 32GB Memory - NVIDIA Quadro RTX 5000 Studio Edition - 1TB SSD - Mercury</p>
+                        <p class="price">$4,176.99</p>
+                    </div>
+                </div>
+
+                <div class="center product slds-col slds-size_1-of-3">
+                    <div class="productImage">
+                        <img class="image" src="{!$Resource.AsusLaptop}"/>
+                    </div>
+                    <div class="productInfo">
+                        <p class="name">ASUS - ROG Zephyrus S17 17.3" Laptop - Intel Core i9 - 32GB Memory - NVIDIA GeForce RTX 3080 - 3TB SSD - Off Black</p>
+                        <p class="price">$3,699.99</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- second row -->
+            <div class="slds-grid">
+                <div class="center product slds-col slds-size_1-of-3">
+                    <div class="productImage">
+                        <img class="image" src="{!$Resource.xboxS}"/>
+                    </div>
+                    <div class="productInfo">
+                        <p class="name">Microsoft - Xbox Series S 512 GB All-Digital Console (Disc-free Gaming) - White</p>
+                        <p class="price">$299.99</p>
+                    </div>
+                </div>
+
+                <div class="center product slds-col slds-size_1-of-3">
+                    <div class="productImage">
+                        <img class="image" src="{!$Resource.ps5}"/>
+                    </div>
+                    <div class="productInfo">
+                        <p class="name">Sony - PlayStation 5 Console</p>
+                        <p class="price">$499.99</p>
+                    </div>
+                </div>
+
+                <div class="center product slds-col slds-size_1-of-3">
+                    <div class="productImage">
+                        <img class="image" src="{!$Resource.xboxX}"/>
+                    </div>
+                    <div class="productInfo">
+                        <p class="name">Microsoft - Xbox Series X 1TB Console - Black</p>
+                        <p class="price">$499.99</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- third row -->
+            <div class="slds-grid">
+                <div class="center product slds-col slds-size_1-of-3">
+                    <div class="productImage">
+                        <img class="image" src="{!$Resource.oculus}"/>
+                    </div>
+                    <div class="productInfo">
+                        <p class="name">Oculus - Quest 2 Advanced All-In-One Virtual Reality Headset - 128GB</p>
+                        <p class="price">$299.99</p>
+                    </div>
+                </div>
+
+                <div class="center product slds-col slds-size_1-of-3">
+                    <div class="productImage">
+                        <img class="image" src="{!$Resource.celestron}"/>
+                    </div>
+                    <div class="productInfo">
+                        <p class="name">Celestron - StarSense Explorer 130mm Newtonian Reflector Telescope - Silver/Black</p>
+                        <p class="price">$399.99</p>
+                    </div>
+                </div>
+
+                <div class="center product slds-col slds-size_1-of-3">
+                    <div class="productImage">
+                        <img class="image" src="{!$Resource.lgTv}"/>
+                    </div>
+                    <div class="productInfo">
+                        <p class="name">LG - 65" Class C1 Series OLED 4K UHD Smart webOS TV</p>
+                        <p class="price">$1,799.99</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- fourth row -->
+            <div class="slds-grid">
+                <div class="center product slds-col slds-size_1-of-3">
+                    <div class="productImage">
+                        <img class="image" src="{!$Resource.pinball}"/>
+                    </div>
+                    <div class="productInfo">
+                        <p class="name">Hurricane Roller Coaster Pinball Machine By Williams. Great Family Arcade Game</p>
+                        <p class="price">$4,895.00</p>
+                    </div>
+                </div>
+
+                <div class="center product slds-col slds-size_1-of-3">
+                    <div class="productImage">
+                        <img class="image" src="{!$Resource.bella}"/>
+                    </div>
+                    <div class="productInfo">
+                        <p class="name">Bella Pro Series - 8-qt. Digital Air Fryer - Stainless Steel</p>
+                        <p class="price">$89.99</p>
+                    </div>
+                </div>
+
+                <div class="center product slds-col slds-size_1-of-3">
+                    <div class="productImage">
+                        <img class="image" src="{!$Resource.armChair}"/>
+                    </div>
+                    <div class="productInfo">
+                        <p class="name">Black Microfiber Upholstered Arm Chair with Accent Pillow</p>
+                        <p class="price">$114.99</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- fifth row -->
+            <div class="slds-grid">
+                <div class="center product slds-col slds-size_1-of-3">
+                    <div class="productImage">
+                        <img class="image" src="{!$Resource.voxelab}"/>
+                    </div>
+                    <div class="productInfo">
+                        <p class="name">Voxelab Aquila 3D Printer Rapid Heating Bed Resume Printing Function 220x220x250</p>
+                        <p class="price">$189.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <!-- Payal's footer -->
+
+</aura:component>
