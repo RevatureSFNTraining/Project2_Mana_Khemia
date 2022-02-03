@@ -16,6 +16,11 @@
     </types>
 
     <!-- don't edit -->
+     
+    <types>
+        <members>*</members>
+        <name>StaticResource</name>
+    </types>
     <types>
         <members>*</members>
         <name>ApexTrigger</name>

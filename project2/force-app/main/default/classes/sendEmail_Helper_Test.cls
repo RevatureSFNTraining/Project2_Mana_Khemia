@@ -9,8 +9,8 @@ public with sharing class sendEmail_Helper_Test {
         User u = new User(
         ProfileId = [SELECT Id FROM Profile WHERE Name = 'Standard Platform User'].Id,
         LastName = 'last',
-        Email = 'payalvp1221@gmail.com',
-        Username = 'payal.patel@revature.net',
+        Email = 'vatsalp92@outlook.com',
+        Username = 'vatsalp92@outlook.com',
         CompanyName = 'TEST',
         Title = 'title',
         Alias = 'alias',
@@ -28,7 +28,7 @@ public with sharing class sendEmail_Helper_Test {
     public static void singlePositiveTestCase() {
         Test.startTest();
 
-        User uId =[select Id from User where Username = 'payal.patel@revature.net' limit 1];
+        User uId =[select Id from User where Username = 'vatsalp92@outlook.com' limit 1];
             User user =[select Blocked__c from User where Id =: uId.Id limit 1];  
             user.Blocked__c = true;
 
@@ -50,8 +50,8 @@ public with sharing class sendEmail_Helper_Test {
         for (Integer i = 0; i < MAXITEMS; i++) {
             User u = new User(
             LastName = 'last',
-            Email = 'payalvp1221@gmail.com',
-            Username = 'payal.patel@revature.net' + i,
+            Email = 'vatsalp92@outlook.com',
+            Username = 'vatsalp92@outlook.com' + i,
             CompanyName = 'TEST',
             Title = 'title',
             Alias = 'alias',
