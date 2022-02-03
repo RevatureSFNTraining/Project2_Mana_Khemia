@@ -12,7 +12,7 @@ export default class Sidebarnav extends LightningElement {
     messageContext;
 
     goHome(event) {
-        const payload = {pageRedirect: 'home'};
+        const payload = {pageRedirect: ''};
         publish(this.messageContext, Navigation, payload);
     }
     goMyProfile(event) {
@@ -20,7 +20,11 @@ export default class Sidebarnav extends LightningElement {
         publish(this.messageContext, Navigation, payload);
     }
     goMyWatchlist(event) {
-        const payload = {pageRedirect: 'mywatchlist'};
+        const payload = {pageRedirect: 'watchlist'};
+        publish(this.messageContext, Navigation, payload);
+    }
+    goMessaging(event) {
+        const payload = {pageRedirect: 'messaging'};
         publish(this.messageContext, Navigation, payload);
     }
     goSupport(event) {
