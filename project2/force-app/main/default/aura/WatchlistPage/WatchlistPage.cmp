@@ -4,21 +4,21 @@
     <div class="header">
         <c:header></c:header>
     </div>
-    
-    <!-- promo banner -->
-    <div class="promo">
-        <!-- Rudy's promo banner -->
-    </div>
 
     <!-- body -->
     <div class="slds-grid">
         <!-- navigation sidebar -->
         <div class="sidebar slds-col slds-size_1-of-7">
-            <!-- Zain's sidebar -->
+            <c:sidebarnav></c:sidebarnav>
         </div>
 
         <!-- watchlist -->
         <div class="slds-col slds-size_6-of-7">
+            <!-- promo banner -->
+            <div class="promo">
+                <c:featured></c:featured>
+            </div>
+    
             <!-- first row -->
             <div class="slds-grid">
                 <div class="center product slds-col slds-size_1-of-3">
@@ -167,6 +167,6 @@
     </div>
 
     <!-- footer -->
-    <!-- Payal's footer -->
+    <c:footer></c:footer>
 
 </aura:component>
