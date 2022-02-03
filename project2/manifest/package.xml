@@ -5,7 +5,6 @@
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
-        <members>header</members>
         <members>sidebarnav</members>
         <name>LightningComponentBundle</name>
     </types>
@@ -26,12 +25,6 @@
     <types>
         <members>Bid__c.All</members>
         <name>ListView</name>
-    </types>
-    <types>
-        <members>DellLaptop</members>
-        <members>ebayLogo</members>
-        <members>profileIcon</members>
-        <name>StaticResource</name>
     </types>
     <version>53.0</version>
 </Package>
