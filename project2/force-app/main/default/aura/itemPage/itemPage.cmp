@@ -1,0 +1,72 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes, force:appHostable, force:hasRecordId" access="global">
+    <c:header></c:header>
+    <lightning:messageChannel type="Navigation__c"
+    aura:id="componentPageRedirect" onMessage="{!c.pageRedirect}"/>
+
+    <aura:attribute name="userId" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+
+    <aura:attribute name="productId" type="Id" default="01t8c00000D7rMnAAJ"/>
+    <aura:attribute name="product" type="Product2" />
+    <aura:attribute name="highestBid" type="Bid__c" />
+    <aura:attribute name="highestBidder" type="User" />
+    <force:recordData
+        aura:id="recordServiceProduct"
+        recordId="{!v.productId}"
+        fields="['Name', 'Current_Highest_Bid__c', 'Close_Date__c', 'Minimum_Price__c', 'Seller__c', 'Description', 'isActive']"
+        targetFields="{!v.product}"
+    />
+    <force:recordData
+        aura:id="recordServiceBid"
+        recordId="{!v.product.Current_Highest_Bid__c}"
+        fields="['Name', 'Bidder__c', 'Price__c']"
+        targetFields="{!v.highestBid}"
+    />
+    <force:recordData
+        aura:id="recordProductSeller"
+        recordId="{!v.product.Seller__c}"
+        fields="['Name']"
+        targetFields="{!v.highestBidder}"
+    />
+
+    <div class="slds-grid">
+        <!-- navigation sidebar -->
+        <div class="sidebar slds-col slds-size_1-of-7">
+            <c:sidebarnav></c:sidebarnav>
+        </div>
+
+        <div class="slds-col slds-size_5-of-7">
+            <div class="center product slds-col slds-size_1-of-3">
+                <div class="productImage">
+                    <img class="image" src="{!$Resource.DellLaptop}"/>
+                </div>
+            </div>
+
+            <div class="center product slds-col slds-size_1-of-3">
+                <div class="productInfo">
+                    <p class="name">Dell - Precision 7000 17.3" Laptop - Intel Core i7 - 64 GB Memory - NVIDIA RTX A4000 - 512 GB SSD - Gray</p>
+                    <p class="name">Seller: {!v.highestBidder.Name}</p>
+                    <p>{!v.product.Description}</p>
+                    <p class="price">Minimum Bid Price: {!v.product.Minimum_Price__c}</p>
+                    <p class="price">Current Highest Bid: {!v.highestBid.Price__c}</p>
+                </div>
+            </div>
+
+            <div class="center product slds-col slds-size_1-of-3">
+                    <forceChatter:feed type="groups"/>
+            </div>
+
+
+
+        </div>
+
+        <div class="slds-col slds-size_1-of-7">
+            <lightning:recordForm
+                object-api-name="Bid__c"
+                fields="['Price__c']"
+                onsubmit="{handleSubmit}"
+                onsuccess="{handleSuccess}"/>
+        </div>
+    </div>
+</aura:component>	
