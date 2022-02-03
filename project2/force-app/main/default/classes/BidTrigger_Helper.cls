@@ -21,10 +21,14 @@ public with sharing class BidTrigger_Helper {
           WHERE Id =: bid.Product__c
           LIMIT 1
         ];
+        Bid__c highestBid = [SELECT Id, Price__c
+                          FROM Bid__c
+                          WHERE Id =: listing.Current_Highest_Bid__c
+                          LIMIT 1];
         // Check if bid is greater than current highest bid on listing
-        if (bid.Price__c > listing.Current_Highest_Bid__c || listing.Current_Highest_Bid__c == null) {
+        if (bid.Price__c > highestBid.Price__c || highestBid.Price__c == null) {
           // Update current highest bid
-          listing.Current_Highest_Bid__c = bid.Price__c;
+          listing.Current_Highest_Bid__c = bid.Id;
           update listing;
         }
       } catch (Exception e) {
