@@ -1,6 +1,6 @@
 # Project 2 
 
-### The business chosen was a Book Publisher
+### The business chosen was a ebay
 
 ## Creating an LWC/Aura Experience Cloud site & imperative business solutions.
 
