@@ -1,5 +1,7 @@
 # Project 2 
 
+###The business chosen was a Book Publisher
+
 ## Creating an LWC/Aura Experience Cloud site & imperative business solutions.
 
 This will be a team-based project. As a team, developers should decide on a business that they want to model in Salesforce (this should not be an extension of Project 0/Project 1, given the knowledge and comfortability they’ve developed with the Salesforce platform since the time that they started those projects).
